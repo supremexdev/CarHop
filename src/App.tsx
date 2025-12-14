@@ -5,10 +5,11 @@ import { Dashboard } from './components/Dashboard';
 import { BrowseCars } from './components/BrowseCars';
 import RentersList from './components/rentersList';
 import TenantsList from './components/tenantsList';
+import VehiclesList from './components/VehiclesList';
 import { FAQ } from './components/FAQ';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'dashboard' | 'browse' |  'faq' | 'renters' | 'tenants'>('home');
+ const [currentPage, setCurrentPage] = useState<'home' | 'dashboard' | 'browse' | 'faq' | 'renters' | 'tenants' | 'vehicles'>('home');
   const [userEmail, setUserEmail] = useState<string>('');
 
   const handleSignIn = (email: string) => {
@@ -44,6 +45,12 @@ export default function App() {
         >
           View Tenants
         </button>
+        <button 
+  onClick={() => setCurrentPage('vehicles')} 
+  className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600"
+>
+  View Vehicles
+</button>
       </div>
       
       {currentPage === 'home' ? (
@@ -56,9 +63,11 @@ export default function App() {
         <RentersList />
       ) : currentPage === 'tenants' ? (
         <TenantsList />
+      ) : (currentPage === 'vehicles' ? (
+        <VehiclesList />
       ) : (
         <Dashboard onNavigate={setCurrentPage} />
-      )}
+      ))}
     </div>
   );
 }

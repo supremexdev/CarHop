@@ -9,6 +9,18 @@ export async function getRenters() {
   }
 }
 
+
+export async function getVehicles() {
+  try {
+    const response = await fetch('http://localhost:3001/api/vehicles');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching vehicles:", error);
+    return [];
+  }
+}
+
 export async function getTenants() {
   try {
     const response = await fetch('http://localhost:3001/api/tenants');

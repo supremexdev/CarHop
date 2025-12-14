@@ -51,6 +51,15 @@ app.get('/api/tenants', async (req, res) => {
   }
 });
 
+app.get('/api/vehicles', async (req, res) => {
+  try {
+    const vehicles = await db.collection("Vehicles").find({}).toArray();
+    res.json(vehicles);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 const PORT = 3001;
 app.listen(PORT, () => {
   console.log(` Server running on http://localhost:${PORT}`);
