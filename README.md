@@ -5,7 +5,11 @@
 
   ## Running the code
 
-  Run `npm i` to install the dependencies.
+  navigate to folder containing server.js 
+    in the command line run 'npm run server'
 
-  Run `npm run dev` to start the development server.
+  in the same folder
+    Run `npm i` or 'npm install' to install the node.js dependency folders.
+
+    Run `npm run dev` to start the development server.
   
